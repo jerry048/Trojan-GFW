@@ -23,9 +23,7 @@ sed -i 's/server_name/server_name $domain/' /etc/nginx/sites-available/default
 systemctl restart nginx
 
 ## Set up Web Server
-wget https://github.com/jerry048/Trojan-GFW/raw/main/Sample-Website.zip && unzip Sample-Website.zip
-cp -rf Sample-Website/ /var/www/html/
-rm -r Sample-Website Sample-Website.zip
+wget https://github.com/jerry048/Trojan-GFW/raw/main/Sample-Website.zip && unzip Sample-Website.zip -d /var/www/html/
 
 ## Add SSL cert & configure it to renew automatically every 90 days
 certbot certonly --nginx
@@ -97,6 +95,7 @@ cat << EOF>/etc/trojan/config.json
         "password": ""
     }
 }
+EOF
 systemctl enable trojan && systemctl start trojan
 
 ## Tweaking
