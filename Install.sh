@@ -15,7 +15,7 @@ normal_2
 
 ## Update & install necessary packages
 apt-get update && apt-get upgrade
-apt-get install -qqy nginx trogan zip unzip certbot python3-certbot-nginx
+apt-get install -qqy nginx trojan zip unzip certbot python3-certbot-nginx
 
 ## Set up nginx
 systemctl enable nginx && systemctl start nginx
