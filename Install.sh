@@ -9,8 +9,8 @@ fi
 
 source <(wget -qO- https://raw.githubusercontent.com/jerry048/Seedbox-Components/main/Miscellaneous/tput.sh)
 need_input
-read -p "Domain name with DNS A Record pointing to server's IP Address" domain
-read -p "Password of Trojan" password
+read -p "Domain name with DNS A Record pointing to server's IP Address: " domain
+read -p "Password of Trojan: " password
 normal_2
 
 ## Update & install necessary packages
@@ -23,7 +23,7 @@ sed -i 's/server_name/server_name $domain/' /etc/nginx/sites-available/default
 systemctl restart nginx
 
 ## Set up Web Server
-wget https://raw.githubusercontent.com/jerry048/Trojan-GFW/main/archive/Sample-Website.zip && unzip Sample-Website.zip
+wget https://github.com/jerry048/Trojan-GFW/raw/main/Sample-Website.zip && unzip Sample-Website.zip
 cp -rf Sample-Website/ /var/www/html/
 rm -r Sample-Website Sample-Website.zip
 
